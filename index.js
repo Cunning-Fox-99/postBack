@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from "mongoose";
 import multer from 'multer'
+import cors from 'cors';
 
 import {registerValidation, loginValidation, postCreateValidation} from "./validations.js";
 
@@ -14,6 +15,7 @@ mongoose
     .catch((err) => console.log('DB Error: ', err))
 
 const app = express()
+app.use(cors())
 
 const storage = multer.diskStorage({
     destination: (_, __, cb) => {

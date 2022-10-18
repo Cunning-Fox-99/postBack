@@ -24,6 +24,7 @@ const storage = multer.diskStorage({
     },
 })
 
+
 const upload = multer({ storage })
 
 app.use(express.json())
@@ -47,8 +48,10 @@ app.delete('/posts/:id', checkAuth, PostController.remove)
 app.patch('/posts/:id', checkAuth, postCreateValidation, handleValidationErrors, PostController.update)
 
 
+const host = '0.0.0.0';
+const port = process.env.PORT || 4444;
 
-app.listen('4444', (err) => {
+app.listen(port, host, (err) => {
     if (err) {
         return console.log(err)
     }

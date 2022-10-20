@@ -16,5 +16,5 @@ export const postCreateValidation = [
     body('title', 'Enter title').isLength({min: 3}).isString(),
     body('text', 'Enter text').isLength({min: 5}).isString(),
     body('tags', 'Name must be longer then 3').optional().isString(),
-    body('imageURL', 'Please put URL in field').optional().isURL(),
+    body('imageUrl', 'Please put URL in field').optional().isURL(),
 ]
